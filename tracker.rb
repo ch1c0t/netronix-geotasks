@@ -1,16 +1,21 @@
 require 'hobby'
 require 'hobby/json'
+require 'hobby/auth'
 
 require 'mongoid'
 require 'mongoid/geospatial'
 Mongoid.connect_to 'testing_netronix_TestTask'
 
+require_relative 'model/user'
+require_relative 'model/manager'
+require_relative 'model/driver'
 require_relative 'model/task'
 Task.create_indexes
 
 class Tracker
   include Hobby
   include JSON
+  include Auth[Manager]
 
   # Coordinates have to be reversed because the order specified
   # in the task's description is [latitude, longtitude],
@@ -24,7 +29,7 @@ class Tracker
   get { Task.near json['location'].reverse }
 
   # Create a new task.
-  post { 
+  manager post { 
     Task.create \
       pickup:   json['pickup'].reverse,
       delivery: json['delivery'].reverse

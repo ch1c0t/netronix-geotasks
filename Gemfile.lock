@@ -29,6 +29,7 @@ GEM
     excon (0.54.0)
     hobby (0.0.6)
       rack
+    hobby-auth (0.0.0)
     hobby-devtools (0.0.5)
       awesome_print
       hobby
@@ -133,6 +134,7 @@ PLATFORMS
 
 DEPENDENCIES
   hobby
+  hobby-auth
   hobby-devtools
   hobby-json
   mongoid

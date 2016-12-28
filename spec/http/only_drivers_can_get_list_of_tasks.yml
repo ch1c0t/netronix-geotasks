@@ -1,0 +1,9 @@
+- get:
+    path: /
+    headers:
+      Authorization: not driver
+    body:
+      location: [1.0, 1.0]
+
+  response:
+    status: 403

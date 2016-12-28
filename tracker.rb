@@ -15,7 +15,7 @@ Task.create_indexes
 class Tracker
   include Hobby
   include JSON
-  include Auth[Manager]
+  include Auth[Manager, Driver]
 
   # Coordinates have to be reversed because the order specified
   # in the task's description is [latitude, longtitude],
@@ -26,7 +26,7 @@ class Tracker
   # As specified, it works with JSON data in the request's body,
   # but it should be noted that many people consider it a bad idea:
   # https://stackoverflow.com/questions/978061/http-get-with-request-body
-  get { Task.near json['location'].reverse }
+  driver get { Task.near json['location'].reverse }
 
   # Create a new task.
   manager post { 

@@ -9,7 +9,7 @@ class Task
   validates_presence_of :status, :pickup, :delivery
 
   spatial_scope :pickup
-  scope :near, -> location { nearby location.map &:to_f }
+  scope :near, -> location { where(status: :new).nearby location.map &:to_f }
 
   belongs_to :user, optional: true
 

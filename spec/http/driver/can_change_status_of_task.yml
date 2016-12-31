@@ -87,3 +87,17 @@
       pickup: [5.0, 6.0]
       delivery: [20.0, 20.5]
       status: done
+      
+
+- get:
+    path: /
+    headers:
+      Authorization: first valid driver token
+    body:
+      location: [1.0, 1.0]
+
+  response:
+    body.size: 1
+    body[0].>:
+      pickup: [10.0, 10.0]
+      delivery: [20.0, 20.5]

@@ -35,7 +35,7 @@ class Tracker
       delivery: json['delivery'].reverse
   }
 
-  # Get a task by id
+  # Get a task by id.
   #
   # This is not specified in the task's description, but I need it for testing
   # via HTTP.

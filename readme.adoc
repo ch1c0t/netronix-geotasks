@@ -1,0 +1,23 @@
+= Geo based tasks tracker
+
+This repository contains https://github.com/netronixgroup/backend-ruby[a test task from Netronix] implemented by Anatoly Chernow(chertoly@gmail.com).
+
+== Dependencies
+
+  $ bundle
+
+And MongoDB should be listening at the default port:
+
+  $ mongod --dbpath /path/to/directory --bind_ip 127.0.0.1
+
+== Usage
+The main file is `tracker.rb`. A rack app can be instantiated with `Tracker.new`.
+
+== Testing
+Instead of using more conventional rack-test, I use my own tool -- https://github.com/ch1c0t/hobby-test[hobby-test].
+A big advantage of it is language-agnosticism. The service can be reimplemented in other language(for example, Elixir), and be tested against the same specification.
+Hobby-test is still under development though. Your input on how it might be improved would be greatly appreciated.
+
+To run the specs:
+
+  $ bundle exec rspec

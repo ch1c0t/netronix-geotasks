@@ -30,7 +30,7 @@ GEM
     hobby (0.0.6)
       rack
     hobby-auth (0.0.0)
-    hobby-devtools (0.0.5)
+    hobby-devtools (0.0.6)
       awesome_print
       hobby
       hobby-test (>= 0.0.3)
@@ -43,7 +43,7 @@ GEM
       rspec
     hobby-json (0.0.4)
       rack
-    hobby-test (0.0.3)
+    hobby-test (0.0.4)
       excon
       to_proc
     i18n (0.7.0)

@@ -34,4 +34,24 @@ class Tracker
       pickup:   json['pickup'].reverse,
       delivery: json['delivery'].reverse
   }
+
+  # Change the task's status.
+  driver patch('/:id') {
+    status, id = json['status'], my[:id]
+
+    case status
+    when 'assigned'
+      user.task = Task.find id
+      user.task.status = status
+    when 'done'
+      task = Task.find id
+
+      if task == user.task
+        task.status = status
+      else
+        response.status = 403
+        'You are trying to mark as done a task not assigned to you.'
+      end
+    end
+  }
 end

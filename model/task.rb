@@ -11,6 +11,8 @@ class Task
   spatial_scope :pickup
   scope :near, -> location { nearby location.map &:to_f }
 
+  belongs_to :user, optional: true
+
   def as_json (*)
     all = super
     all['id'] = all.delete('_id').to_s

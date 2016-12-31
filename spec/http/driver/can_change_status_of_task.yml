@@ -1,0 +1,59 @@
+- post:
+    path: /
+    headers:
+      Authorization: second valid manager token
+    body:
+      pickup: [10.0, 10.0]
+      delivery: [20.0, 20.5]
+
+- post:
+    path: /
+    headers:
+      Authorization: first valid manager token
+    body:
+      pickup: [5.0, 6.0]
+      delivery: [20.0, 20.5]
+
+- get:
+    path: /
+    headers:
+      Authorization: first valid driver token
+    body:
+      location: [1.0, 1.0]
+
+  response:
+    body.size: 2
+    body[0]['pickup']: [5.0, 6.0]
+    body[1].>:
+      pickup: [10.0, 10.0]
+      delivery: [20.0, 20.5]
+
+- patch:
+    template.path: uri responses[2][0]['id']
+    headers:
+      Authorization: first valid driver token
+    body:
+      status: assigned
+
+  response:
+    status: 200
+
+- patch:
+    template.path: uri responses[2][0]['id']
+    headers:
+      Authorization: second valid driver token
+    body:
+      status: done
+
+  response:
+    status: 403
+
+- patch:
+    template.path: uri responses[2][0]['id']
+    headers:
+      Authorization: first valid driver token
+    body:
+      status: done
+
+  response:
+    status: 200

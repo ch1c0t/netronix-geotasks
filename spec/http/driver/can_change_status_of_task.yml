@@ -28,6 +28,7 @@
       pickup: [10.0, 10.0]
       delivery: [20.0, 20.5]
 
+
 - patch:
     template.path: uri responses[2][0]['id']
     headers:
@@ -38,6 +39,25 @@
   response:
     status: 200
 
+- get:
+    template.path: uri responses[2][0]['id']
+    
+  response:
+    body.>:
+      pickup: [5.0, 6.0]
+      delivery: [20.0, 20.5]
+      status: assigned
+
+- patch:
+    template.path: uri responses[2][0]['id']
+    headers:
+      Authorization: second valid driver token
+    body:
+      status: assigned
+
+  response:
+    status: 403
+    
 - patch:
     template.path: uri responses[2][0]['id']
     headers:
@@ -48,6 +68,7 @@
   response:
     status: 403
 
+
 - patch:
     template.path: uri responses[2][0]['id']
     headers:
@@ -57,3 +78,12 @@
 
   response:
     status: 200
+
+- get:
+    template.path: uri responses[2][0]['id']
+    
+  response:
+    body.>:
+      pickup: [5.0, 6.0]
+      delivery: [20.0, 20.5]
+      status: done

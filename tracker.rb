@@ -35,19 +35,30 @@ class Tracker
       delivery: json['delivery'].reverse
   }
 
+  # Get a task by id
+  #
+  # This is not specified in the task's description, but I need it for testing
+  # via HTTP.
+  get('/:id') { Task.find my[:id] }
+
   # Change the task's status.
   driver patch('/:id') {
-    status, id = json['status'], my[:id]
+    status, task = json['status'], (Task.find my[:id])
 
     case status
     when 'assigned'
-      user.task = Task.find id
-      user.task.status = status
+      if task.status == :new
+        user.task = task
+        task.status = status
+        task.save
+      else
+        response.status = 403
+        'You are trying to get a task assigned to someone else or already done.'
+      end
     when 'done'
-      task = Task.find id
-
       if task == user.task
         task.status = status
+        task.save
       else
         response.status = 403
         'You are trying to mark as done a task not assigned to you.'

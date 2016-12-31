@@ -15,6 +15,7 @@ class Task
 
   def as_json (*)
     all = super
+    all.delete 'user_id'
     all['id'] = all.delete('_id').to_s
     all['pickup'] = all['pickup'].reverse
     all['delivery'] = all['delivery'].reverse

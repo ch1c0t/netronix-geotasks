@@ -18,6 +18,7 @@ GEM
       equalizer (~> 0.0.11)
     ast (2.3.0)
     awesome_print (1.7.0)
+    bgem (0.0.4)
     bson (4.2.1)
     coderay (1.1.1)
     concord (0.1.5)
@@ -29,9 +30,10 @@ GEM
     excon (0.54.0)
     hobby (0.0.6)
       rack
-    hobby-auth (0.0.0)
-    hobby-devtools (0.0.6)
+    hobby-auth (0.0.1)
+    hobby-devtools (0.0.8)
       awesome_print
+      bgem
       hobby
       hobby-test (>= 0.0.3)
       minitest
@@ -43,11 +45,13 @@ GEM
       rspec
     hobby-json (0.0.4)
       rack
-    hobby-test (0.0.4)
+    hobby-test (0.0.5)
       excon
-      to_proc
+      include_constants
+      to_proc (>= 0.0.7)
     i18n (0.7.0)
     ice_nine (0.11.2)
+    include_constants (0.0.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
@@ -117,7 +121,7 @@ GEM
     rspec-support (3.5.0)
     slop (3.6.0)
     thread_safe (0.3.5)
-    to_proc (0.0.6)
+    to_proc (0.0.7)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unparser (0.2.5)

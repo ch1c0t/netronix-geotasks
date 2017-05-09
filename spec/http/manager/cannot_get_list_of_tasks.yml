@@ -1,0 +1,9 @@
+- get:
+    path: /
+    headers:
+      Authorization: first valid manager token
+    body:
+      location: [1.0, 1.0]
+
+  response:
+    status: 403

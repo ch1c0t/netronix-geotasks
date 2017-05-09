@@ -30,7 +30,7 @@
 
 
 - patch:
-    template.path: uri responses[2].body[0]['id']
+    path: (uri responses[2].body[0]['id'])
     headers:
       Authorization: first valid driver token
     body:
@@ -40,7 +40,7 @@
     status: 200
 
 - get:
-    template.path: uri responses[2].body[0]['id']
+    path: (uri responses[2].body[0]['id'])
     
   response:
     body.>:
@@ -49,7 +49,7 @@
       status: assigned
 
 - patch:
-    template.path: uri responses[2].body[0]['id']
+    path: (uri responses[2].body[0]['id'])
     headers:
       Authorization: second valid driver token
     body:
@@ -59,7 +59,7 @@
     status: 403
     
 - patch:
-    template.path: uri responses[2].body[0]['id']
+    path: (uri responses[2].body[0]['id'])
     headers:
       Authorization: second valid driver token
     body:
@@ -70,7 +70,7 @@
 
 
 - patch:
-    template.path: uri responses[2].body[0]['id']
+    path: (uri responses[2].body[0]['id'])
     headers:
       Authorization: first valid driver token
     body:
@@ -80,7 +80,7 @@
     status: 200
 
 - get:
-    template.path: uri responses[2].body[0]['id']
+    path: (uri responses[2].body[0]['id'])
     
   response:
     body.>:

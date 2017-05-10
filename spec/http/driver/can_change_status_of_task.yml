@@ -57,6 +57,7 @@
 
   response:
     status: 403
+    body: You are trying to get a task assigned to someone else or already done.
     
 - patch:
     path: (uri responses[2].body[0]['id'])
@@ -67,6 +68,7 @@
 
   response:
     status: 403
+    body: You are trying to mark as done a task not assigned to you.
 
 
 - patch:

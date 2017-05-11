@@ -49,7 +49,7 @@ GEM
       terminal-table
     hobby-json (0.0.4)
       rack
-    hobby-test (0.0.7)
+    hobby-test (0.0.10)
       excon
       hash-as-tree (>= 0.0.5)
       include_constants
@@ -62,7 +62,7 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
-    minitest (5.10.1)
+    minitest (5.10.2)
     minitest-power_assert (0.2.0)
       minitest
       power_assert

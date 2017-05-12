@@ -33,7 +33,7 @@ GEM
     hobby (0.0.6)
       rack
     hobby-auth (0.0.1)
-    hobby-devtools (0.0.9)
+    hobby-devtools (0.0.10)
       awesome_print
       bgem
       hobby
